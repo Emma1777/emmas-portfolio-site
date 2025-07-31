@@ -10,7 +10,7 @@ colors: {
         // Backgrounds
         'blueish-bg': '#0e083e',
         'greenishbutton-bg': '#a2eb1c',
-        'blueishbutton-bg': '#a3daf6',
+        'blueishbutton-bg': '#4da6c3',
         'whitish-bg': '#f2f5f6',
 
         // Text
