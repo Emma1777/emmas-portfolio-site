@@ -23,7 +23,7 @@ const StatsSection = () => {
           <div key={index}>
             <h2 className="text-4xl font-bold text-greenish-text">
               {inView && (
-                <CountUp end={stat.value} duration={2} suffix={stat.suffix || ''} />
+                <CountUp end={stat.value} duration={5} suffix={stat.suffix || ''} />
               )}
             </h2>
             <p className="text-white text-sm md:text-base mt-2">{stat.label}</p>

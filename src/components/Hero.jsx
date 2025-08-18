@@ -1,48 +1,62 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+// src/components/Hero.jsx
+import React from "react";
+import { motion } from "framer-motion";
+import { scrollToSection } from "../utils/scrollHelpers";
 
 const Hero = () => {
   return (
-    <section className="relative bg-blueish-bg text-white py-20 px-6 text-center overflow-hidden">
-      
-      {/* Main Content */}
+    <section
+      className="relative bg-blueish-bg text-white py-20 px-6 text-center overflow-hidden"
+      id="home"
+    >
+      {/* Circles */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute w-40 h-40 bg-greenishbutton-bg rounded-full opacity-20 blur-3xl"
+          animate={{ y: [0, 20, 0] }}
+          transition={{ duration: 6, repeat: Infinity }}
+          style={{ top: "20%", left: "10%" }}
+        />
+        <motion.div
+          className="absolute w-32 h-32 bg-blueishbutton-bg rounded-full opacity-20 blur-3xl"
+          animate={{ y: [0, -20, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
+          style={{ bottom: "20%", right: "15%" }}
+        />
+      </div>
+
+      {/* Content */}
       <div className="max-w-3xl mx-auto z-10 relative">
         <h1 className="text-3xl md:text-5xl font-bold mb-4">
-          Bringing Creative Visions to Life through Design
+          We Design. You Grow.
+          <span className="block text-greenish-text">
+            Creative visuals that convert visitors into clients.
+          </span>
         </h1>
-        <p className="text-lg md:text-xl text-whitish-header-text mb-8">
-          Elevating your brand with striking visuals that speak louder than words.
+        <p className="text-lg md:text-xl text-whitish-header-text mb-6">
+          Trusted by brands in Nairobi & beyond for impactful, results-driven design.
         </p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/solutions">
-            <button className="bg-blueishbutton-bg  text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <button
+              onClick={() => scrollToSection("solutions")}
+              className="bg-blueishbutton-bg text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-greenishbutton-bg transition duration-300"
+            >
               Explore Services
             </button>
-          </Link>
-          <Link to="/contact">
-            <button className="bg-greenishbutton-bg text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="border-2 border-greenishbutton-bg text-greenishbutton-bg font-semibold py-3 px-6 rounded-lg hover:bg-greenishbutton-bg hover:text-white transition duration-300"
+            >
               Get in Touch
             </button>
-          </Link>
+          </motion.div>
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0">
-  <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path
-      fill="#a3daf6"
-      d="
-        M0,50 
-        C360,90 360,10 720,50 
-        C1080,90 1080,10 1440,50 
-        L1440,100 
-        L0,100 
-        Z"
-    />
-  </svg>
-</div>
-
     </section>
   );
 };
